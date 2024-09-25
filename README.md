@@ -3,14 +3,13 @@ Contains a TypeScript AWS project with a simple set of CRUD Rest APIs routed thr
 
 # Steps to Deploy #
 ## Prerequisites [If Needed] ##
-In the AWS Console:
 1. IAM User and AWS CLI Privileges
     1. Create User in AWS IAM Service for CLI Access in your AWS Region
     2. Attach AdministratorAccess Policy to the User
     3. Navigate to the User's Security Credentials and Create an Access Key and Secret Key for CLI Access
     4. [!IMPORTANT] Save the Access Key and Secret Key in a secure location
 2. [Optional] Create a budget in AWS Budgets Service to monitor costs
-    1. Navigate to Billing and Cost Management Service in AWS Console
+    1. Navigate to Billing and Cost Management Service
     2. Select Budgets and Create a Budget
     3. Use a template and select "Zero Spend Budget" to monitor costs
 
