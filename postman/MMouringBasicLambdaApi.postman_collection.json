@@ -22,12 +22,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{BASE_URL}}/{{STAGE}}/locations/:locationId",
+									"raw": "{{BASE_URL}}/{{_STAGE}}/locations/:locationId",
 									"host": [
 										"{{BASE_URL}}"
 									],
 									"path": [
-										"{{STAGE}}",
+										"{{_STAGE}}",
 										"locations",
 										":locationId"
 									],
@@ -60,12 +60,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{BASE_URL}}/{{STAGE}}/locations/:locationId",
+									"raw": "{{BASE_URL}}/{{_STAGE}}/locations/:locationId",
 									"host": [
 										"{{BASE_URL}}"
 									],
 									"path": [
-										"{{STAGE}}",
+										"{{_STAGE}}",
 										"locations",
 										":locationId"
 									],
@@ -89,12 +89,12 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{BASE_URL}}/{{STAGE}}/locations/:locationId",
+									"raw": "{{BASE_URL}}/{{_STAGE}}/locations/:locationId",
 									"host": [
 										"{{BASE_URL}}"
 									],
 									"path": [
-										"{{STAGE}}",
+										"{{_STAGE}}",
 										"locations",
 										":locationId"
 									],
@@ -121,13 +121,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/{{STAGE}}/locations",
+							"raw": "{{BASE_URL}}/{{_STAGE}}/location",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"{{STAGE}}",
-								"locations"
+								"{{_STAGE}}",
+								"location"
 							]
 						}
 					},
@@ -152,12 +152,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/{{STAGE}}/locations",
+							"raw": "{{BASE_URL}}/{{_STAGE}}/locations",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
-								"{{STAGE}}",
+								"{{_STAGE}}",
 								"locations"
 							]
 						}
@@ -172,42 +172,36 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "4d4a5520-5d5f-42f5-9756-1b5bfd314758",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"const apiGwId = pm.collectionVariables.get(\"API_GW_ID\");",
 					"pm.collectionVariables.set(\"BASE_URL\", 'https://'+apiGwId+'.execute-api.us-east-1.amazonaws.com');"
-				],
-				"id": "0ee7ea68-a0c8-412d-a9ec-44e50431f355"
+				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
+				"id": "76653f4e-b0b4-40f2-87ae-69deb265a75a",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					""
-				],
-				"id": "bed7ff50-f914-4eab-8bf4-27c9a2e0a25e"
+				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "ccaa9ed4-2475-41a1-a10b-f268edadbfdb",
-			"key": "STAGE",
-			"value": "dev",
-			"type": "string"
-		},
-		{
-			"id": "39fbf8f9-33ea-4c79-9884-bde97f0ff74c",
+			"id": "f1104048-954e-4488-93a6-1fd3c3d019a9",
 			"key": "API_GW_ID",
 			"value": "w080ri46m6",
 			"type": "string"
 		},
 		{
-			"id": "c8e2da9d-70db-4949-9d1d-74312e27271a",
+			"id": "8a14b527-ff6e-41d3-8540-6bc82302de14",
 			"key": "BASE_URL",
 			"value": "",
 			"type": "string"
