@@ -1,0 +1,224 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'Basic-Lambda-Api'
+  description: Basic Lambda API Definition
+
+paths:
+  /locations:
+    get:
+      summary: Read all Location
+      responses:
+        '200':
+          description: Returns all locations stored within the database
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemsSuccess'
+        404:
+          description: No location found for the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Write a Location
+      responses:
+        '200':
+          description: Creates a location record in the database after searching for the lon and lat data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSuccess'
+
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /locations/{locationId}:
+    parameters:
+      - name: locationId
+        description: The unique identifier of the location
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/LocationId'
+    get:
+      summary: Read a Location
+      responses:
+        '200':
+          description: The location corresponding to the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSuccess'
+        404:
+          description: No location found for the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    patch:
+      summary: Update a Location
+      responses:
+        '200':
+          description: The location corresponding to the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSuccess'
+        404:
+          description: No location found for the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              
+    delete:
+      summary: Delete a Location
+      responses:
+        '200':
+          description: The location corresponding to the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemSuccess'
+        404:
+          description: No location found for the provided `locationId`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    LocationId:
+      description: The unique identifier of a location
+      type: string
+    
+    Location:
+      type: object
+      required:
+        - locationId
+        - placeId
+        - license
+        - osmType
+        - osmId
+        - lat
+        - lon
+        - class
+        - type
+        - placeRank
+        - importance
+        - addressType
+        - name
+        - displayName
+        - boundingBox
+      properties:
+        locationId:
+          $ref: '#/components/schemas/LocationId'
+        placeId:
+            type: string
+        license:
+            type: string
+        osmType:
+            type: string
+        osmId:
+            type: string
+        lat:
+            type: string
+        lon:
+            type: string
+        class:
+            type: string
+        type:
+            type: string
+        placeRank:
+            type: number    
+        importance:
+            type: number
+        addressType:
+            type: string
+        name:
+            type: string
+        displayName:
+            type: string
+        boundingBox:
+            type: array
+            items:
+                type: string
+    
+    ItemSuccess:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          $ref: '#/components/schemas/Location'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    ItemsSuccess:
+      type: object
+      required:
+        - data
+        - meta
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Location'
+        meta:
+          $ref: '#/components/schemas/Meta'
+
+    Error:
+      type: object
+      required:
+        - error
+        - meta
+      properties:
+        error:
+          type: object
+          required:
+            - logMsg
+          properties:
+            logMsg:
+              type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+    
+    Meta:
+      type: object
+      required:
+        - userMsg
+      properties:
+        userMsg:
+          type: string

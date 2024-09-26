@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c3793128-d57f-4f41-9db2-2d78b525482d",
+		"_postman_id": "0873bbd4-b691-497a-8578-72e8068be88c",
 		"name": "MMouringBasicLambdaApi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21506241"
+		"_uid": "21506241-0873bbd4-b691-497a-8578-72e8068be88c"
 	},
 	"item": [
 		{
@@ -14,6 +14,10 @@
 					"item": [
 						{
 							"name": "getLocation",
+							"id": "e1d38f7b-3a59-4ee2-ae86-5b129f9639e2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -39,6 +43,10 @@
 						},
 						{
 							"name": "updateLocation",
+							"id": "fd771074-99be-4b7d-a43e-9ba0b5f015a9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "PATCH",
 								"header": [],
@@ -73,6 +81,10 @@
 						},
 						{
 							"name": "deleteLocation",
+							"id": "8a2a4705-17f4-4c5f-aa36-f6f0f0924f58",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -96,10 +108,15 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"id": "9fed5c92-46f1-42d5-96e6-5931ffcb74da"
 				},
 				{
 					"name": "getLocations",
+					"id": "b2848f69-1a3a-404a-8a62-b252d0a43847",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -118,6 +135,10 @@
 				},
 				{
 					"name": "createLocation",
+					"id": "9965f767-d316-483f-a68f-ecb2aa8c9500",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -143,7 +164,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"id": "f91b39dd-3b06-4402-a4cf-60af4472f7c5"
 		}
 	],
 	"event": [
@@ -155,7 +177,8 @@
 				"exec": [
 					"const apiGwId = pm.collectionVariables.get(\"API_GW_ID\");",
 					"pm.collectionVariables.set(\"BASE_URL\", 'https://'+apiGwId+'.execute-api.us-east-1.amazonaws.com');"
-				]
+				],
+				"id": "0ee7ea68-a0c8-412d-a9ec-44e50431f355"
 			}
 		},
 		{
@@ -165,22 +188,26 @@
 				"packages": {},
 				"exec": [
 					""
-				]
+				],
+				"id": "bed7ff50-f914-4eab-8bf4-27c9a2e0a25e"
 			}
 		}
 	],
 	"variable": [
 		{
+			"id": "ccaa9ed4-2475-41a1-a10b-f268edadbfdb",
 			"key": "STAGE",
 			"value": "dev",
 			"type": "string"
 		},
 		{
+			"id": "39fbf8f9-33ea-4c79-9884-bde97f0ff74c",
 			"key": "API_GW_ID",
 			"value": "w080ri46m6",
 			"type": "string"
 		},
 		{
+			"id": "c8e2da9d-70db-4949-9d1d-74312e27271a",
 			"key": "BASE_URL",
 			"value": "",
 			"type": "string"
