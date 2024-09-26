@@ -22,9 +22,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{BASE_URL}}/{{_STAGE}}/locations/:locationId",
+									"raw": "{{_BASE_URL}}/{{_STAGE}}/locations/:locationId",
 									"host": [
-										"{{BASE_URL}}"
+										"{{_BASE_URL}}"
 									],
 									"path": [
 										"{{_STAGE}}",
@@ -60,9 +60,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{BASE_URL}}/{{_STAGE}}/locations/:locationId",
+									"raw": "{{_BASE_URL}}/{{_STAGE}}/locations/:locationId",
 									"host": [
-										"{{BASE_URL}}"
+										"{{_BASE_URL}}"
 									],
 									"path": [
 										"{{_STAGE}}",
@@ -89,9 +89,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{BASE_URL}}/{{_STAGE}}/locations/:locationId",
+									"raw": "{{_BASE_URL}}/{{_STAGE}}/locations/:locationId",
 									"host": [
-										"{{BASE_URL}}"
+										"{{_BASE_URL}}"
 									],
 									"path": [
 										"{{_STAGE}}",
@@ -121,13 +121,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{BASE_URL}}/{{_STAGE}}/location",
+							"raw": "{{_BASE_URL}}/{{_STAGE}}/locations",
 							"host": [
-								"{{BASE_URL}}"
+								"{{_BASE_URL}}"
 							],
 							"path": [
 								"{{_STAGE}}",
-								"location"
+								"locations"
 							]
 						}
 					},
@@ -152,9 +152,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/{{_STAGE}}/locations",
+							"raw": "{{_BASE_URL}}/{{_STAGE}}/locations",
 							"host": [
-								"{{BASE_URL}}"
+								"{{_BASE_URL}}"
 							],
 							"path": [
 								"{{_STAGE}}",
@@ -172,39 +172,25 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4d4a5520-5d5f-42f5-9756-1b5bfd314758",
+				"id": "b3c277df-427c-406b-a6c6-35a0733fc452",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"const apiGwId = pm.collectionVariables.get(\"API_GW_ID\");",
-					"pm.collectionVariables.set(\"BASE_URL\", 'https://'+apiGwId+'.execute-api.us-east-1.amazonaws.com');"
+					"const apiGwId = pm.environment.get(\"_API_GW_ID\");",
+					"pm.environment.set(\"_BASE_URL\", 'https://'+apiGwId+'.execute-api.us-east-1.amazonaws.com');"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "76653f4e-b0b4-40f2-87ae-69deb265a75a",
+				"id": "b454f99e-124b-4ed8-921b-9a5fce122073",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"id": "f1104048-954e-4488-93a6-1fd3c3d019a9",
-			"key": "API_GW_ID",
-			"value": "w080ri46m6",
-			"type": "string"
-		},
-		{
-			"id": "8a14b527-ff6e-41d3-8540-6bc82302de14",
-			"key": "BASE_URL",
-			"value": "",
-			"type": "string"
 		}
 	]
 }

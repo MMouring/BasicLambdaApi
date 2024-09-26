@@ -45,15 +45,15 @@ paths:
                 $ref: '#/components/schemas/Error'
 
   /locations/{locationId}:
-    parameters:
-      - name: locationId
-        description: The unique identifier of the location
-        in: path
-        required: true
-        schema:
-          $ref: '#/components/schemas/LocationId'
     get:
       summary: Read a Location
+      parameters:
+        - name: locationId
+          description: The unique identifier of the location
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocationId'
       responses:
         '200':
           description: The location corresponding to the provided `locationId`
@@ -75,6 +75,13 @@ paths:
                 $ref: '#/components/schemas/Error'
     patch:
       summary: Update a Location
+      parameters:
+        - name: locationId
+          description: The unique identifier of the location
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocationId'
       responses:
         '200':
           description: The location corresponding to the provided `locationId`
@@ -97,6 +104,13 @@ paths:
               
     delete:
       summary: Delete a Location
+      parameters:
+        - name: locationId
+          description: The unique identifier of the location
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/LocationId'
       responses:
         '200':
           description: The location corresponding to the provided `locationId`
