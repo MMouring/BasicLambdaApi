@@ -5,7 +5,14 @@ info:
   description: Basic Lambda API Definition
 
 paths:
-  /locations:
+  /{{_STAGE}}/locations:
+    parameters:
+        - name: _STAGE
+          description: The environment variable used to determine api environment
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/STAGE'
     get:
       summary: Read all Location
       responses:
@@ -44,16 +51,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /locations/{locationId}:
-    get:
-      summary: Read a Location
-      parameters:
+  /{{_STAGE}}/locations/{locationId}:
+    parameters:
+        - name: _STAGE
+          description: The environment variable used to determine api environment
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/STAGE'
         - name: locationId
           description: The unique identifier of the location
           in: path
           required: true
           schema:
             $ref: '#/components/schemas/LocationId'
+    get:
+      summary: Read a Location
       responses:
         '200':
           description: The location corresponding to the provided `locationId`
@@ -75,13 +88,6 @@ paths:
                 $ref: '#/components/schemas/Error'
     patch:
       summary: Update a Location
-      parameters:
-        - name: locationId
-          description: The unique identifier of the location
-          in: path
-          required: true
-          schema:
-            $ref: '#/components/schemas/LocationId'
       responses:
         '200':
           description: The location corresponding to the provided `locationId`
@@ -104,13 +110,6 @@ paths:
               
     delete:
       summary: Delete a Location
-      parameters:
-        - name: locationId
-          description: The unique identifier of the location
-          in: path
-          required: true
-          schema:
-            $ref: '#/components/schemas/LocationId'
       responses:
         '200':
           description: The location corresponding to the provided `locationId`
@@ -133,6 +132,10 @@ paths:
 
 components:
   schemas:
+    STAGE:
+        description: The environment variable used to determine api environment
+        type: string 
+
     LocationId:
       description: The unique identifier of a location
       type: string
